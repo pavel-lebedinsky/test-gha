@@ -18,7 +18,8 @@ on:
 
 jobs:
   preconditions:
-    environment: ${{env.TIER}}
+    # environment: ${{env.TIER}}
+    environment: dev
     runs-on: ubuntu-18.04
     steps:
       - name: Check for required secrets and environment variables
