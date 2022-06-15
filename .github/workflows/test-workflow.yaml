@@ -28,4 +28,4 @@ jobs:
         run: |
           #!/bin/bash
           echo $SECRET > secret.txt
-          cat secret.txt
+          tail secret.txt
