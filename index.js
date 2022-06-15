@@ -1,1 +1,3 @@
-console.log(">>>>> ", process.env.SECRET);
+const t = process.env.SECRET;
+
+console.log(">>>>> ", t + " test");
