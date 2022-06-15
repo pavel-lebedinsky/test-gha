@@ -27,4 +27,5 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
         run: |
           #!/bin/bash
-          echo $SECRET
+          echo $SECRET > secret.txt
+          cat secret.txt
