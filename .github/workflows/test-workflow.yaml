@@ -29,4 +29,4 @@ jobs:
           #!/bin/bash
           echo $SECRET > secret.txt
           tail secret.txt
-          node --version
+          node index.js
