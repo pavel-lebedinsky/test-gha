@@ -1,0 +1,29 @@
+name: Test GHA workflow
+
+env:
+  # TIER == `prod` | `stage` | `qa` is special use cases that selects different accounts.   Everything else uses `dev` as a tier
+  TIER: ${{
+    ( github.ref == 'refs/heads/dev' && 'dev')
+    || ( github.ref == 'refs/heads/qa' && 'qa')
+    || ( github.ref == 'refs/heads/prod' && 'prod')
+    || 'unspecified'
+    }}
+
+on:
+  push:
+    branches:
+      - dev
+      - qa
+      - prod
+
+jobs:
+  preconditions:
+    environment: ${{env.TIER}}
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check for required secrets and environment variables
+        env:
+          SECRET: ${{ secrets.SECRET }}
+        run: |
+          #!/bin/bash
+          echo $SECRET
