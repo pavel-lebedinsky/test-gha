@@ -14,11 +14,10 @@ on:
     branches:
       - dev
       - qa
-      - prod
 
 jobs:
   preconditions:
-    environment: ${{env.TIER}}
+    environment: ${{TIER}}
     # environment: dev
     # environment: qa
     runs-on: ubuntu-18.04
