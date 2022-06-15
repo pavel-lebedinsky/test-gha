@@ -1,7 +1,5 @@
 name: Test GHA workflow
 
-environment: qa
-
 env:
   TIER: ${{
     ( github.ref == 'refs/heads/dev' && 'dev')
@@ -9,7 +7,6 @@ env:
     || ( github.ref == 'refs/heads/prod' && 'prod')
     || 'unspecified'
     }}
-  SECRET: ${{ secrets.SECRET }}
 
 on:
   push:
@@ -18,6 +15,10 @@ on:
       - qa
 
 jobs:
+  environment: qa
+  env:
+    SECRET: ${{ secrets.SECRET }}
+
   preconditions:
     # environment: ${{TIER}}
     # environment: dev
