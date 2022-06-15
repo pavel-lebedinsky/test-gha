@@ -19,8 +19,8 @@ on:
 jobs:
   preconditions:
     # environment: ${{env.TIER}}
-    environment: dev
-    # environment: qa
+    # environment: dev
+    environment: qa
     runs-on: ubuntu-18.04
     steps:
       - name: Check out the repo
