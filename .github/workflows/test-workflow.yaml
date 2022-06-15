@@ -22,6 +22,8 @@ jobs:
     environment: dev
     runs-on: ubuntu-18.04
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
       - name: Check for required secrets and environment variables
         env:
           SECRET: ${{ secrets.SECRET }}
